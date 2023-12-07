@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>html卡密系统</title>
+    <script src="cards.js"></script>
+</head>
+<body>
+    <h1>html卡密验证系统</h1>
+    <p>测试卡密:hz0001</p>
+
+    <label for="code">请输入卡密：</label>
+    <input type="text" id="code">
+    <button id="validateButton">验证</button>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("validateButton").addEventListener("click", function() {
+            var input = document.getElementById("code").value;
+            
+            if (validateCode(input, codes)) {
+                document.getElementById("message").innerHTML = "卡密有效！";
+                document.getElementById("message").style.color = "green";
+                window.location.href = "https://hz64.github.io/"; // 在这里设置跳转的链接
+            } else {
+                document.getElementById("message").innerHTML = "卡密无效，请重新输入！";
+                document.getElementById("message").style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
